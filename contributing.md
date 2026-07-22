@@ -11,11 +11,20 @@ Include the date, rough location, and a short caption. We'll review it and add i
 ## If you know GitHub
 
 1. Fork this repo
-2. Add a new JSON file under `/data/events/` following the format in `schema.json`
-3. Add your photos to `/images/[date]/`
+2. Add a new JSON file under `/data/events/` following the format in `data/schema.json`
+3. Add your photos directly to `/images/` (no subfolders, just the file)
 4. Open a pull request
 
 We'll review and merge it if it fits the format and the content checks out.
+
+## Categories
+
+Every entry belongs to one of four categories:
+
+- **Photos & Videos**: Raw footage or images from the ground.
+- **Stories**: Written testimony or firsthand accounts.
+- **Art & Memes**: Posters, illustrations, memes, and other creative responses.
+- **News Articles**: A short original summary of news coverage, with a link to the full article. Do not copy or paste article text. Just summarize what it reports and link to the original source using the `source_url` field.
 
 ## A few ground rules
 
@@ -23,11 +32,8 @@ We'll review and merge it if it fits the format and the content checks out.
 - Don't include other people's personal information (full names, phone numbers, addresses) without their consent.
 - If a photo shows someone getting hurt or shows blood, flag it in the caption so we can mark it as graphic content.
 - Be accurate. If you're not sure about a date or location, say so instead of guessing.
+- For News Articles entries, write your own summary. Do not reproduce article text directly.
 
 ## What happens after you submit
 
-Someone reviews every submission before it goes live. This isn't about censorship, it's to keep the archive accurate and to catch anything that shouldn't be public (like someone's face who didn't consent to being identified, or a location that could put someone at risk).
-
-## Questions
-
-Open an issue on this repo.
+Someone reviews every submission before it goes live. This isn't about censorship, it's to keep the archive accurate and to catch anything that shouldn't be public, like someone's face who didn't consent to being identified, or a location that could put someone at risk.
