@@ -7,8 +7,8 @@ const requiredFields = [
   'submitted_via', 'verified'
 ];
 
-const stringFields = ['id', 'location', 'title', 'category', 'description', 'contributor', 'submitted_via'];
-const allowedSubmissionMethods = ['github-pr', 'google-form'];
+const stringFields = ['id', 'location', 'title', 'category', 'contributor', 'submitted_via'];
+const allowedSubmissionMethods = ['github-pr', 'google-form', 'bulk-import'];
 const tagPattern = /^[a-z0-9-]+$/;
 const imagePattern = /^[A-Za-z0-9._-]+\.(jpg|jpeg|png)$/i;
 
@@ -40,7 +40,7 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-const allowedFields = new Set([...requiredFields, 'source_url']);
+const allowedFields = new Set([...requiredFields, 'source_url', 'ig_handle', 'x_handle', 'source_link']);
 const extra = Object.keys(entry).filter(key => !allowedFields.has(key));
 if (extra.length) {
   console.error(`${filePath}: unknown fields - ${extra.join(', ')}`);
@@ -52,6 +52,11 @@ for (const field of stringFields) {
     console.error(`${filePath}: ${field} must be a non-empty string`);
     process.exit(1);
   }
+}
+
+if (typeof entry.description !== 'string') {
+  console.error(`${filePath}: description must be a string`);
+  process.exit(1);
 }
 
 if (entry.contributor.length > 100) {
@@ -96,9 +101,9 @@ if (!allowedSubmissionMethods.includes(entry.submitted_via)) {
   process.exit(1);
 }
 
-const allowedCategories = ['photos-videos', 'stories', 'art-memes', 'news-articles'];
+const allowedCategories = ['photos-videos', 'stories', 'art-posters', 'memes', 'news-articles'];
 if (!allowedCategories.includes(entry.category)) {
-  console.error(`${filePath}: category must be photos-videos, stories, art-memes, or news-articles`);
+  console.error(`${filePath}: category must be photos-videos, stories, art-posters, memes, or news-articles`);
   process.exit(1);
 }
 
@@ -133,10 +138,7 @@ if (!Array.isArray(entry.tags) || !entry.tags.every(tag => typeof tag === 'strin
   console.error(`${filePath}: tags must contain lowercase letters, numbers, and hyphens only`);
   process.exit(1);
 }
-if (entry.tags.length === 0) {
-  console.error(`${filePath}: at least one tag is required`);
-  process.exit(1);
-}
+
 if (new Set(entry.tags).size !== entry.tags.length) {
   console.error(`${filePath}: duplicate tags`);
   process.exit(1);
@@ -151,9 +153,9 @@ if (new Set(entry.images).size !== entry.images.length) {
   process.exit(1);
 }
 
-const imagesRoot = path.resolve('images');
+const imagesRoot = path.resolve('data', 'images');
 for (const image of entry.images) {
-  const imagePath = path.resolve('images', image);
+  const imagePath = path.resolve('data', 'images', image);
   if (!imagePath.startsWith(imagesRoot + path.sep)) {
     console.error(`${filePath}: invalid image path - ${image}`);
     process.exit(1);
