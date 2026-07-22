@@ -121,9 +121,9 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TWLD - The World's Largest Democracy</title>
+  <title>TWLD - The World's Largest Demockracy</title>
   <meta name="description" content="Community archive documenting India's youth-led protest movement. A chronological record of events, verified by contributors.">
-  <meta property="og:title" content="TWLD - The World's Largest Democracy">
+  <meta property="og:title" content="TWLD - The World's Largest Demockracy">
   <meta property="og:description" content="Community archive documenting India's youth-led protest movement.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,7 +146,7 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
       <header class="masthead" id="site-header">
         <div class="masthead-brand">
           <h1 class="masthead-title"><a href="${depth}" class="masthead-link">TWLD</a></h1>
-          <p class="masthead-sub">The World's Largest Democracy / Community Protest Archive</p>
+          <p class="masthead-sub">The World's Largest Demockracy / Community Protest Archive</p>
         </div>
       </header>
 
