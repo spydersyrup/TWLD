@@ -600,6 +600,15 @@ body {
   color: var(--text-muted);
 }
 
+.footer-callout {
+  font-family: 'Inter', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
 .colophon-links { margin-top: 0.5rem; }
 
 .colophon-links a {
@@ -797,6 +806,33 @@ body {
   display: flex;
 }
 .active-tag-filter button:hover { color: var(--text); }
+
+/* City Filters */
+.city-filters-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.city-pill {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.city-pill:hover, .city-pill.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
 
 /* Share Button */
 .share-btn {

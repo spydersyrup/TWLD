@@ -139,6 +139,43 @@
       timelineEl.appendChild(tagHeader);
     }
 
+    // City Filters for Home
+    if (pageType === 'home' && !activeTag && !searchQuery) {
+      var cityCounts = {};
+      events.forEach(function(ev) {
+        if (!ev.location) return;
+        var parts = ev.location.split(',');
+        var city = parts[parts.length - 1].trim();
+        if (city) {
+          cityCounts[city] = (cityCounts[city] || 0) + 1;
+        }
+      });
+      var sortedCities = Object.keys(cityCounts).sort(function(a, b) {
+        return cityCounts[b] - cityCounts[a];
+      }).slice(0, 4);
+
+      if (sortedCities.length > 0) {
+        var cityContainer = document.createElement('div');
+        cityContainer.className = 'city-filters-container';
+        
+        sortedCities.forEach(function(city) {
+          var pill = document.createElement('button');
+          pill.className = 'city-pill';
+          pill.textContent = city;
+          pill.addEventListener('click', function() {
+            searchQuery = city.toLowerCase();
+            if (searchInput) searchInput.value = city;
+            if (clearSearchBtn) clearSearchBtn.classList.remove('hidden');
+            resetLimits();
+            renderTimeline();
+          });
+          cityContainer.appendChild(pill);
+        });
+        
+        timelineEl.appendChild(cityContainer);
+      }
+    }
+
     catsToRender.forEach(function (cat) {
       var catEvents = events.filter(function (ev) {
         if (ev.category !== cat.id) return false;

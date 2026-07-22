@@ -243,13 +243,11 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
       ` : ''}
 
       <footer class="colophon" id="site-footer">
-        ${pageType !== 'submit' ? `<p class="footer-callout">Were you there? Add what you saw.</p>` : ''}
+        <p class="footer-callout">Were you there? Add what you saw.</p>
         <p>TWLD is an open-source, community-maintained archive. No single person or organization owns this record. Anyone can contribute, verify, or question it.</p>
         <p class="colophon-links">
-          ${pageType !== 'submit' ? `
           <a href="${depth}submit/">Submit an entry</a>
           <span class="sep">/</span>
-          ` : ''}
           <a href="https://github.com/spydersyrup/TWLD">GitHub</a>
         </p>
       </footer>
