@@ -224,7 +224,7 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
         <p class="colophon-links">
           <a href="https://github.com/spydersyrup/TWLD">Contribute on GitHub</a>
           <span class="sep">/</span>
-          <a href="${depth}contributing.md">How to submit</a>
+          <a href="${depth}submit/">How to submit</a>
         </p>
       </footer>
     </main>
