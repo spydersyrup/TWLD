@@ -110,4 +110,34 @@ if (!Array.isArray(entry.tags) || !entry.tags.every(tag => typeof tag === 'strin
   process.exit(1);
 }
 if (entry.tags.length === 0) {
-  console.error(
+  console.error(`${filePath}: at least one tag is required`);
+  process.exit(1);
+}
+if (new Set(entry.tags).size !== entry.tags.length) {
+  console.error(`${filePath}: duplicate tags`);
+  process.exit(1);
+}
+
+if (!Array.isArray(entry.images) || !entry.images.every(img => typeof img === 'string' && imagePattern.test(img))) {
+  console.error(`${filePath}: images must be filenames like name.jpg, name.jpeg, or name.png`);
+  process.exit(1);
+}
+if (new Set(entry.images).size !== entry.images.length) {
+  console.error(`${filePath}: duplicate images`);
+  process.exit(1);
+}
+
+const imagesRoot = path.resolve('images');
+for (const image of entry.images) {
+  const imagePath = path.resolve('images', image);
+  if (!imagePath.startsWith(imagesRoot + path.sep)) {
+    console.error(`${filePath}: invalid image path - ${image}`);
+    process.exit(1);
+  }
+  if (!fs.existsSync(imagePath)) {
+    console.error(`${filePath}: image not found - ${image}`);
+    process.exit(1);
+  }
+}
+
+console.log(`${filePath} looks good`);
