@@ -11,7 +11,7 @@ If the submission includes a photo or video:
 ### Step 2: Create the Data File
 1. Go to your main project folder and double-click the **`add-entry.bat`** file.
 2. A black terminal window will open. Answer the prompts it gives you (Date, Title, Category, Handles, etc.).
-   - **For Photos/Videos or Art/Memes:** If you saved an image in Step 1, type its exact filename when it asks for "Image filenames" (e.g., `delhi-protest-1.jpg`).
+   - **For Photos/Videos, Art & Posters, or Memes:** If you saved an image in Step 1, type its exact filename when it asks for "Image filenames" (e.g., `delhi-protest-1.jpg`).
    - **For Stories:** Just press Enter to skip the image question, and paste their full story into the "Description" prompt.
    - **For News Articles:** Just press Enter to skip the image question, and paste the article link into the "Source URL" prompt.
 3. Press Enter on the last question, and the script will automatically generate the perfect code file for you in `data/events/`.

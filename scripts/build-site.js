@@ -77,7 +77,8 @@ console.log(`Copied ${imagesCopied} image(s) to docs/images/`);
 const categories = [
   { id: 'photos-videos', label: 'Photos & Videos' },
   { id: 'stories', label: 'Stories' },
-  { id: 'art-memes', label: 'Art & Memes' },
+  { id: 'art-posters', label: 'Art & Posters' },
+  { id: 'memes', label: 'Memes' },
   { id: 'news-articles', label: 'News Articles' }
 ];
 

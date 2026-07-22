@@ -16,7 +16,7 @@ async function run() {
   const title = await ask('Title: ');
   const location = await ask('Location (e.g. Jantar Mantar, New Delhi): ');
   
-  console.log("\nCategories: photos-videos | stories | art-memes | news-articles");
+  console.log("\nCategories: photos-videos | stories | art-posters | memes | news-articles");
   const category = await ask('Category: ');
   const description = await ask('Description: ');
   const tagsStr = await ask('Tags (comma separated, e.g. march, police): ');
