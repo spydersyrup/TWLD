@@ -3,13 +3,13 @@ on:
   pull_request:
     paths:
       - 'data/events/**'
-      - 'images/**'
+      - 'data/images/**'
       - 'scripts/**'
   push:
     branches: [main]
     paths:
       - 'data/events/**'
-      - 'images/**'
+      - 'data/images/**'
       - 'scripts/**'
   workflow_dispatch:
 permissions:
@@ -30,8 +30,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libimage-exiftool-perl
       - name: Strip EXIF from all images
         run: |
-          if [ -d images ]; then
-            find images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec exiftool -all= -overwrite_original {} \;
+          if [ -d data/images ]; then
+            find data/images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec exiftool -all= -overwrite_original {} \;
           fi
       - name: Validate all event JSON files
         shell: bash
@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add images/ docs/
+          git add data/images/ docs/
           if ! git diff --staged --quiet; then
             git commit -m "Strip EXIF metadata and rebuild site"
             git push
