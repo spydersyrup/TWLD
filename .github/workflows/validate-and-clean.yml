@@ -1,21 +1,19 @@
 name: Validate, clean, and deploy
-
 on:
   pull_request:
     paths:
       - 'data/events/**'
       - 'images/**'
+      - 'scripts/**'
   push:
     branches: [main]
     paths:
       - 'data/events/**'
       - 'images/**'
-      - 'scripts/build-site.js'
+      - 'scripts/**'
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   validate-clean-deploy:
     runs-on: ubuntu-latest
@@ -24,21 +22,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
-
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
+          node-version: '24'
       - name: Install exiftool
         run: sudo apt-get update && sudo apt-get install -y libimage-exiftool-perl
-
       - name: Strip EXIF from all images
         run: |
           if [ -d images ]; then
             find images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec exiftool -all= -overwrite_original {} \;
           fi
-
       - name: Validate all event JSON files
         shell: bash
         run: |
@@ -47,11 +41,9 @@ jobs:
             echo "Checking $file"
             node scripts/validate-entry.js "$file"
           done
-
       - name: Build site
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: node scripts/build-site.js
-
       - name: Commit and push changes
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
