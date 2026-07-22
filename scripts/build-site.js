@@ -102,15 +102,9 @@ fs.writeFileSync(path.join(submitDir, 'index.html'), submitHTML, 'utf-8');
 
 fs.writeFileSync(path.join(DOCS_DIR, '.nojekyll'), '', 'utf-8');
 
-// Generate Shared Assets in docs/
-fs.writeFileSync(path.join(DOCS_DIR, 'styles.css'), getCSS(), 'utf-8');
-fs.writeFileSync(path.join(DOCS_DIR, 'main.js'), getJS(), 'utf-8');
-
-// Extract source files to src/
-const SRC_DIR = path.join(__dirname, '../src');
-fs.mkdirSync(SRC_DIR, { recursive: true });
-fs.writeFileSync(path.join(SRC_DIR, 'styles.css'), getCSS().trim(), 'utf-8');
-fs.writeFileSync(path.join(SRC_DIR, 'main.js'), getJS().trim(), 'utf-8');
+// Copy Shared Assets to docs/
+fs.copyFileSync(path.join(__dirname, '../src/styles.css'), path.join(DOCS_DIR, 'styles.css'));
+fs.copyFileSync(path.join(__dirname, '../src/main.js'), path.join(DOCS_DIR, 'main.js'));
 
 console.log(`Generated homepage, 4 category pages, submit page, and shared assets`);
 
