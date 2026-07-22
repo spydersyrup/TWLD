@@ -76,6 +76,7 @@ console.log(`✓ Copied ${imagesCopied} image(s) to docs/images/`);
 
 const html = buildHTML(events);
 fs.writeFileSync(path.join(DOCS_DIR, 'index.html'), html, 'utf-8');
+fs.writeFileSync(path.join(DOCS_DIR, '.nojekyll'), '', 'utf-8');
 console.log(`✓ Generated docs/index.html`);
 
 // ---------------------------------------------------------------------------
