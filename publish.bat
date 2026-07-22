@@ -13,12 +13,21 @@ if %errorlevel% neq 0 (
 )
 
 echo.
-echo [2/3] Committing changes to Git...
+echo [2/4] Committing changes to Git...
 git add .
-git commit -m "Add new entries from Tally"
+git commit -m "Update archive"
 
 echo.
-echo [3/3] Pushing to GitHub...
+echo [3/4] Syncing with GitHub server...
+git pull origin main --rebase
+if %errorlevel% neq 0 (
+  echo Sync failed! You might have a merge conflict.
+  pause
+  exit /b %errorlevel%
+)
+
+echo.
+echo [4/4] Pushing to GitHub...
 git push origin main
 if %errorlevel% neq 0 (
   echo Push failed! Check your internet or GitHub permissions.
