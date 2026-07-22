@@ -130,6 +130,7 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${depth}styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
@@ -149,6 +150,16 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
         </div>
       </header>
 
+      ${pageType !== 'submit' ? `
+      <div class="search-container">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" id="search-input" class="search-input" placeholder="Search archive..." aria-label="Search">
+        <button id="clear-search" class="clear-search-btn hidden" aria-label="Clear search">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      ` : ''}
+
       <nav class="sidebar-nav">
         <ul class="nav-links">
           <li><a href="${depth}" class="nav-link ${pageType === 'home' ? 'active' : ''}">Home</a></li>
@@ -162,14 +173,27 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
 
 
       <div class="sidebar-footer">
-        <button
-          type="button"
-          role="switch"
-          aria-checked="true"
-          aria-label="Toggle content warnings"
-          class="cw-toggle active"
-          id="cw-checkbox"
-        >Content warnings ON</button>
+        <div class="sidebar-footer-actions">
+          <button
+            type="button"
+            role="switch"
+            aria-checked="true"
+            aria-label="Toggle content warnings"
+            class="cw-toggle active"
+            id="cw-checkbox"
+          >
+            <i data-lucide="eye-off"></i>
+            <span>Content warnings ON</span>
+          </button>
+          <button
+            type="button"
+            aria-label="Toggle dark mode"
+            class="theme-toggle"
+            id="theme-toggle"
+          >
+            <i data-lucide="moon"></i>
+          </button>
+        </div>
       </div>
     </aside>
 
@@ -219,21 +243,23 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
       ` : ''}
 
       <footer class="colophon" id="site-footer">
-        <p class="footer-callout">Were you there? Add what you saw.</p>
+        ${pageType !== 'submit' ? `<p class="footer-callout">Were you there? Add what you saw.</p>` : ''}
         <p>TWLD is an open-source, community-maintained archive. No single person or organization owns this record. Anyone can contribute, verify, or question it.</p>
         <p class="colophon-links">
           <a href="https://github.com/spydersyrup/TWLD">Contribute on GitHub</a>
+          ${pageType !== 'submit' ? `
           <span class="sep">/</span>
           <a href="${depth}submit/">How to submit</a>
+          ` : ''}
         </p>
       </footer>
     </main>
   </div>
 
   <div class="lightbox-overlay hidden" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#8249;</button>
-    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#8250;</button>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i data-lucide="x"></i></button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
     <img class="lightbox-img" id="lightbox-img" src="" alt="">
     <div class="lightbox-counter" id="lightbox-counter"></div>
   </div>
