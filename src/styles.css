@@ -45,7 +45,7 @@ body {
 .app-container {
   display: flex;
   min-height: 100vh;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -134,7 +134,9 @@ body {
 }
 
 .nav-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
@@ -143,6 +145,12 @@ body {
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   transition: all 0.2s ease;
+}
+
+.nav-link svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
 }
 
 .nav-link:hover {
@@ -303,6 +311,12 @@ body {
 }
 
 /* Entry */
+.entries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
 .entry {
   background: var(--bg-card);
   border: 1px solid var(--rule);
@@ -322,6 +336,15 @@ body {
 
 .entry:hover {
   box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+
+.entry-compact {
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.entry-compact .entry-location {
+  margin-bottom: 1rem;
 }
 
 .entry-date {

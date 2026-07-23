@@ -228,7 +228,7 @@
       if (totalInCat === 0 && pageType === 'home') return; // hide empty categories on home
       
       var catSection = document.createElement('section');
-      catSection.className = 'category-section';
+      catSection.className = 'category-section' + (pageType === 'home' ? ' category-section-grid' : '');
 
       var catEyebrow = document.createElement('span');
       catEyebrow.className = 'category-eyebrow';
@@ -253,11 +253,18 @@
         emptyP.style.marginBottom = '2rem';
         catSection.appendChild(emptyP);
       } else {
+        var gridWrapper = null;
+        if (pageType === 'home') {
+          gridWrapper = document.createElement('div');
+          gridWrapper.className = 'entries-grid';
+          catSection.appendChild(gridWrapper);
+        }
+        
         visibleCatEvents.forEach(function (ev) {
           visibleCount++;
 
           var card = document.createElement('article');
-          card.className = 'entry';
+          card.className = 'entry' + (pageType === 'home' ? ' entry-compact' : '');
           card.setAttribute('data-id', ev.id);
           card.setAttribute('data-graphic', ev.graphic_content ? 'true' : 'false');
           card.id = 'event-' + ev.id;
@@ -368,7 +375,11 @@
 
           html += '</div>';
           card.innerHTML = html;
-          catSection.appendChild(card);
+          if (gridWrapper) {
+            gridWrapper.appendChild(card);
+          } else {
+            catSection.appendChild(card);
+          }
         });
       }
 

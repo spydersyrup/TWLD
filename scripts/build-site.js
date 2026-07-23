@@ -157,17 +157,19 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
       if (catEvents.length === 0 && pageType === 'home') continue;
       
       const visibleEvents = pageType === 'home' ? catEvents.slice(0, 3) : catEvents;
-      
-      html += `<section class="category-section">`;
+      const gridClass = pageType === 'home' ? ' category-section-grid' : '';
+      html += `<section class="category-section${gridClass}">`;
       html += `<span class="category-eyebrow">SECTION</span>`;
       html += `<h2 class="category-header">${cat.label} <span class="category-count">${catEvents.length} ${catEvents.length === 1 ? 'entry' : 'entries'}</span></h2>`;
       
       if (visibleEvents.length === 0) {
         html += `<p class="category-empty" style="color:var(--text-muted);margin-bottom:2rem;">No items found yet.</p>`;
       } else {
+        if (pageType === 'home') html += `<div class="entries-grid">`;
         for (const ev of visibleEvents) {
           const dateStr = new Date(ev.date + 'T00:00:00Z').toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
-          html += `<article class="entry" id="event-${ev.id}" data-id="${ev.id}">`;
+          const compactClass = pageType === 'home' ? ' entry-compact' : '';
+          html += `<article class="entry${compactClass}" id="event-${ev.id}" data-id="${ev.id}">`;
           html += `<time class="entry-date">${esc(dateStr)}</time>`;
           html += `<div class="entry-location">${esc(ev.location)}</div>`;
           html += `<div class="entry-content">`;
@@ -218,6 +220,7 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
           }
           html += `</div></article>`;
         }
+        if (pageType === 'home') html += `</div>`;
       }
       html += `</section>`;
     }
