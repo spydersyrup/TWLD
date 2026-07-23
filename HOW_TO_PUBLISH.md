@@ -21,4 +21,4 @@ If the submission includes a photo or video:
 2. This script will automatically update the website, save your changes, and push everything to GitHub.
 3. Once the black window says "SUCCESS", you can close it. 
 
-Your new entry will be live on [twld.in](https://twld.in) within 60 seconds!
+Your new entry will be live on [the-protest-record.pages.dev](https://the-protest-record.pages.dev) within 60 seconds!

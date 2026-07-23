@@ -186,7 +186,7 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
     <aside class="sidebar" id="sidebar">
       <header class="masthead" id="site-header">
         <div class="masthead-brand">
-          <h1 class="masthead-title"><a href="${depth}" class="masthead-link">TWLD</a></h1>
+          <h1 class="masthead-title"><a href="${depth}" class="masthead-link">The Protest Record</a></h1>
           <p class="masthead-sub">The World's Largest Demockracy / Community Protest Archive</p>
         </div>
       </header>
@@ -244,14 +244,14 @@ function buildHTML(events, pageType, categoryId, depth, categories) {
             <div class="submit-card">
               <h3>Contribute via GitHub</h3>
               <p>For written accounts, art, memes, or news article summaries. Open a Pull Request directly against the repository if you are comfortable with GitHub.</p>
-              <a href="https://github.com/spydersyrup/TWLD" target="_blank" rel="noopener noreferrer" class="submit-btn-outline">View GitHub Repo &rarr;</a>
-              <a href="https://github.com/spydersyrup/TWLD/blob/main/contributing.md" target="_blank" rel="noopener noreferrer" class="submit-link">Read the contribution guide</a>
+              <a href="https://github.com/spydersyrup/theprotestrecord" target="_blank" rel="noopener noreferrer" class="submit-btn-outline">View GitHub Repo &rarr;</a>
+              <a href="https://github.com/spydersyrup/theprotestrecord/blob/main/contributing.md" target="_blank" rel="noopener noreferrer" class="submit-link">Read the contribution guide</a>
             </div>
             <div class="submit-card tally-container">
               <h3>Submit a photo or video</h3>
               <p>No GitHub needed. Upload raw footage or images directly via our submission form. We will review and verify before it goes live.</p>
               <div style="margin-top: 2rem;">
-                <iframe data-tally-src="https://tally.so/embed/5BgpNv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="1808" frameborder="0" marginheight="0" marginwidth="0" title="TWLD — Submit a Photo or Video"></iframe>
+                <iframe data-tally-src="https://tally.so/embed/5BgpNv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" height="1808" frameborder="0" marginheight="0" marginwidth="0" title="The Protest Record — Submit a Photo or Video"></iframe>
                 <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
               </div>
             </div>

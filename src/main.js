@@ -436,7 +436,7 @@
 
         if (navigator.share) {
           navigator.share({
-            title: title + ' - TWLD',
+            title: title + ' - The Protest Record',
             url: url
           }).catch(function(e){});
         } else {

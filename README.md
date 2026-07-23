@@ -5,7 +5,7 @@ demanding accountability from their government. Police responded with tear gas
 and batons. This is a record of what happened, documented and maintained by the
 people who were there, not by any newsroom, party, or platform.
 
-Live site: [twld.in](https://twld.in)
+Live site: [the-protest-record.pages.dev](https://the-protest-record.pages.dev)
 
 ## What this is
 
