@@ -26,7 +26,7 @@ async function run() {
     process.exit(0);
   }
 
-  console.log(`\n=== TWLD Bulk Importer ===`);
+  console.log(`\n=== The Protest Record Bulk Importer ===`);
   console.log(`Found ${files.length} images to process.\n`);
 
   for (let i = 0; i < files.length; i++) {

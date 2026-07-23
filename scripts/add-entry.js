@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 const ask = (q) => new Promise(resolve => rl.question(q, resolve));
 
 async function run() {
-  console.log("\n=== TWLD Archive Entry Wizard ===\n");
+  console.log("\n=== The Protest Record Archive Entry Wizard ===\n");
   
   const date = await ask('Date (YYYY-MM-DD): ');
   const title = await ask('Title: ');

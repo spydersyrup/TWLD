@@ -1,6 +1,6 @@
 @echo off
 echo ===================================
-echo TWLD Auto-Publisher
+echo The Protest Record Auto-Publisher
 echo ===================================
 echo.
 

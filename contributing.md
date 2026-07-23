@@ -1,4 +1,4 @@
-# Contributing to TWLD
+# Contributing to The Protest Record
 
 ## The Protest Archive
 

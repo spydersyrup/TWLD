@@ -1,4 +1,4 @@
-# How to Publish New Entries to TWLD
+# How to Publish New Entries to The Protest Record
 
 Whenever you receive a new submission from your Tally form (or want to add an entry manually), just follow these 3 simple steps to get it live on the website:
 

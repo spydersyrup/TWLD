@@ -1,4 +1,4 @@
-# TWLD - The World's Largest Demockracy
+# The Protest Record - The World's Largest Demockracy
 
 In July 2026, thousands of young Indians marched peacefully to Parliament
 demanding accountability from their government. Police responded with tear gas
@@ -9,7 +9,7 @@ Live site: [twld.in](https://twld.in)
 
 ## What this is
 
-TWLD brings together photos, videos, written accounts, art, and news coverage of
+The Protest Record brings together photos, videos, written accounts, art, and news coverage of
 the protest movement into one chronological, categorized archive. Every entry is
 submitted by contributors and reviewed before publication.
 
